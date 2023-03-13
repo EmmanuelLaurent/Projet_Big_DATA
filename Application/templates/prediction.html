@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formulaire de prédiction de prix de maison</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      form {
+        width: 500px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px #aaaaaa;
+      }
+
+      label {
+        display: inline-block;
+        width: 200px;
+        margin-bottom: 10px;
+      }
+
+      input[type="text"], select {
+        width: 200px;
+        padding: 5px;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      select {
+        margin-bottom: 20px;
+      }
+
+      input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Formulaire de prédiction de prix de maison</h1>
+    <form action="{{ url_for('predict') }}" method="post">
+      <label for="surface_habitable">Surface habitable (en m²) :</label><br>
+      <input type="text" id="surface_habitable" name="surface_habitable" required><br>
+
+      <label for="nombre_chambres">Nombre de chambres :</label><br>
+      <input type="text" id="nombre_chambres" name="nombre_chambres" required><br>
+
+      <label for="nombre_salles_de_bain">Nombre de salles de bain :</label><br>
+      <input type="text" id="nombre_salles_de_bain" name="nombre_salles_de_bain" required><br>
+
+      <label for="annee_construction">Année de construction :</label><br>
+      <input type="text" id="annee_construction" name="annee_construction" required><br>
+
+      <label for="presence_piscine">Présence d'une piscine :</label><br>
+      <select id="presence_piscine" name="presence_piscine">
+        <option value="0">Non</option>
+        <option value="1">Oui</option>
+      </select><br>
+
+      <input type="submit" value="Predict">
+    </form>
+  </body>
+</html>
