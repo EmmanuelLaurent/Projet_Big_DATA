@@ -83,7 +83,7 @@ nav:hover{
 }
 
 .container{
-    margin-left: 100px;
+    margin-left: 115px;
 }
 
 .container h1{
@@ -123,3 +123,22 @@ iframe{
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     margin-top: 20px;
 }
+
+.logo-right {
+    float: right;
+    margin-top: -15px;
+    margin-right: 30px;
+  }
+
+  .house-img {
+    position: absolute;
+    bottom: 50px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    margin-left: 200px;
+    height: auto;
+    } 
+
+.house-img + p {
+    margin-top: 20px;
+    }

@@ -34,11 +34,18 @@
             </a></li>
         </ul>
     </nav>
-    <!-- Contenu de la page -->
+    <img src="{{ url_for('static', filename='logo.jpg') }}" class="logo-right">
     <div class="container">
-        <h1>Bienvenue sur le site de notre agence immobilière</h1>
-        <p>Nous sommes une agence immobilière située dans l'Iowa et spécialisée dans la vente de maisons. Nous sommes là pour vous aider à trouver votre maison de rêve !</p>
+        <h1 style="margin-top: 30px;">Bienvenue sur le de pilotage de notre agence immobilière Iowa House</h1>
+        <p style="margin-bottom: 30px;"">Cette application permet à tous les collaborateurs de l'agence d'accéder à des données précieuses et à notre outil de prédiction pour améliorer l'expertise de l'agence et offrir un service de qualité supérieure à nos clients.</p>
+        <ul>
+            <li><strong>Dashboard :</strong><br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; • Visualisez des indicateurs clés pour mieux comprendre les tendances du marché immobilier et suivre les performances de la région.</li>
+            <li><strong>Data :</strong><br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; • Accédez à une grande variété de données immobilières et utilisez-les pour prendre des décisions éclairées.</li>
+            <li><strong>Prédiction :</strong><br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; • Utilisez notre outil de prédiction pour estimer la valeur future des biens immobiliers et gagner du temps précieux.</li>
+        </ul>
         <iframe class="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45633.733527732904!2d-93.63587395088825!3d42.020018222705474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87ee70624634a06b%3A0x273156083cc75200!2sAmes%2C%20Iowa%2C%20%C3%89tats-Unis!5e0!3m2!1sfr!2sfr!4v1678839745836!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <img src="{{ url_for('static', filename='house.jpeg') }}" alt="Notre meilleur vente de l'année 2023" class="house-img" style="width: 400px; margin-bottom: 20px;">
+        <p style="margin-top: 460px; margin-left:201px; color: #090d36ee;">🎉 Notre meilleure vente de l'année 2023 🎉</p>
     </div>
 </body>
 </html>
