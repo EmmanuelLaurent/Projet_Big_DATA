@@ -35,87 +35,212 @@
         </ul>
     </nav>
 </body>
-</html>
-  <head>
-    <title>Formulaire de prédiction de prix de maison</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f5f5f5;
-      }
+  
+<head>
+  <title>Formulaire de prédiction de prix de maison</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
 
-      h1 {
-        text-align: center;
-        margin-top: 50px;
-      }
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+    }
 
-      form {
-        width: 500px;
-        margin: 50px auto;
-        padding: 20px;
-        background-color: #ffffff;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px #aaaaaa;
-      }
+    form {
+      width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px #aaaaaa;
+    }
 
-      label {
-        display: inline-block;
-        width: 200px;
-        margin-bottom: 10px;
-      }
+    label {
+      display: inline-block;
+      width: 250px;
+      margin-bottom: 10px;
+    }
 
-      input[type="text"], select {
-        width: 200px;
-        padding: 5px;
-        border: 1px solid #cccccc;
-        border-radius: 5px;
-        font-size: 16px;
-      }
+    input[type="number"], select {
+      width: 200px;
+      padding: 5px;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
 
-      select {
-        margin-bottom: 20px;
-      }
+    select {
+      margin-bottom: 20px;
+      width: 500px;
+    }
 
-      input[type="submit"] {
-        width: 100%;
-        padding: 10px;
-        background-color: #4CAF50;
-        color: #ffffff;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-      }
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
 
-      input[type="submit"]:hover {
-        background-color: #3e8e41;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Formulaire de prédiction de prix de maison</h1>
-    <form action="{{ url_for('predict') }}" method="post">
-      <label for="surface_habitable">Surface habitable (en m²) :</label><br>
-      <input type="text" id="surface_habitable" name="surface_habitable" required><br>
-
-      <label for="nombre_chambres">Nombre de chambres :</label><br>
-      <input type="text" id="nombre_chambres" name="nombre_chambres" required><br>
-
-      <label for="nombre_salles_de_bain">Nombre de salles de bain :</label><br>
-      <input type="text" id="nombre_salles_de_bain" name="nombre_salles_de_bain" required><br>
-
-      <label for="annee_construction">Année de construction :</label><br>
-      <input type="text" id="annee_construction" name="annee_construction" required><br>
-
-      <label for="presence_piscine">Présence d'une piscine :</label><br>
-      <select id="presence_piscine" name="presence_piscine">
-        <option value="0">Non</option>
-        <option value="1">Oui</option>
+    input[type="submit"]:hover {
+      background-color: #3e8e41;
+    }
+    
+  </style>
+    </head>
+    <body>
+      <h1>Formulaire de prédiction de prix de maison</h1>
+      <form action="{{ url_for('predict') }}" method="post">
+        <label for="surface_habitable" style="white-space: nowrap;">Quelle est la surface habitable du logement (en pi²) ?</label><br>
+        <input type="number" id="surface_habitable" name="surface_habitable" step="10" required value="900"><br>
+        </select><br>
+        <label for="etat_maison" style="white-space: nowrap;">Sur une échelle de 1 à 10 comment  évaluez vous les finitions du logement? ?</label><br>
+        <input type="number" id="etat_maison" name="etat_maison" min="1" max="10" step="1" required value="5"><br>
+        </select><br>
+        <label for="hauteur_sous-sol" style="white-space: nowrap;">Quelle est la hauteur du sous-sol ?</label><br>
+        <select id="hauteur_sous-sol" name="hauteur_sous-sol">
+          <option value="Ex">100 pouces ou plus</option>
+          <option value="Gd">Entre 90 et 99 pouces</option>
+          <option value="TA">Entre 80 et 89 pouces</option>
+          <option value="Fa">Moins de 80 pouces</option>
+          <option value="None">Pas de sous-sol</option>
+        </select><br>
+        <label for="annee_renovation" style="white-space: nowrap;">Quelle est l'année de rénovation du logement (année de construction si jamais rénovée) ?</label><br>
+        <input type="number" id="annee_renovation" name="annee_renovation" min="1872" max="2023" required value="2000"><br>
+        </select><br>
+        <label for="exter_qual" style="white-space: nowrap;">Quelle est la qualité des matériaux à l'extérieur ?</label><br>
+          <select id="exter_qual" name="exter_qual">
+              <option value="Ex">Excellent</option>
+              <option value="Gd">Bien</option>
+              <option value="TA">Moyen</option>
+              <option value="Fa">Mauvais</option>
+        </select><br>
+        <label for="kitchen_qual" style="white-space: nowrap;">Quelle est la qualité de la cuisine ?</label><br>
+        <select id="kitchen_qual" name="kitchen_qual">
+          <option value="Ex">Excellente</option>
+          <option value="Gd">Bien</option>
+          <option value="TA">Moyenne</option>
+          <option value="Fa">Mauvaise</option>
       </select><br>
-
-      <input type="submit" value="Predict">
-    </form>
-  </body>
-</html>
+      <label for="pool_area" style="white-space: nowrap;">Quelle est la taille de la piscine en pieds carrés ? (0 si pas de piscine)</label><br>
+      <input type="number" id="pool_area" name="pool_area" min="0" step="10" required value="0"><br>
+      </select><br>
+      <label for="garage_cars" style="white-space: nowrap;">Quelle est la taille du garage en capacité de voiture ?</label><br>
+      <input type="number" id="garage_cars" name="garage_cars" step="1" required value="1"><br>
+      </select><br>
+      <label for="garage_type" style="white-space: nowrap;">Quel est le type de Garage ?</label><br>
+      <select id="garage_type" name="garage_type">
+          <option value="Attchd">Attaché à la maison</option>
+          <option value="2Types">2 types de garage</option>
+          <option value="Basment">Dans le sous-sol</option>
+          <option value="BuiltIn">Garage fait partie de la maison</option>
+          <option value="CarPort">Port de voiture</option>
+          <option value="Detchd">Détacher de la maison</option>
+          <option value="None">Pas de garage</option>
+      </select><br>
+      <label for="ms_zoning" style="white-space: nowrap;">Dans quelle zone est situé le logement ?</label><br>
+      <select id="ms_zoning" name="ms_zoning">
+        <option value="C (all)">Commerciale</option>
+        <option value="FV">Village Flottant Résidentiel</option>
+        <option value="RH">Résidentielle à haute densité</option>
+        <option value="RM">Résidentielle à moyenne densité</option>
+        <option value="RL">Résidentielle à faible densité</option>
+      </select><br>
+      <label for="condition1" style="white-space: nowrap;">De quel élément la maison est proche ?</label><br>
+      <select id="condition1" name="condition1">
+        <option value="Artery">Adjacente à une rue artérielle</option>
+        <option value="Feedr">Adjacente à la rue Feeder</option>
+        <option value="PosN">À côté d'un parc</option>
+        <option value="PosA">Adjacente à un point d'intérêt positif (magasin, hôpital...)</option>
+        <option value="RRNn">À 200 pieds du chemin de fer Nord-Sud</option>
+        <option value="RRNe">À 200 pieds du chemin de fer Est-Ouest</option>
+        <option value="RRAe">Adjacente au chemin de fer Est-Ouest</option>
+        <option value="RRAn">Adjacente au chemin de fer Nord-Sud</option>
+        <option value="Norm">Aucune proximité</option>
+      </select><br>
+      <label for="condition2" style="white-space: nowrap;">De quel élément la maison est proche 2e choix ?</label><br>
+      <select id="condition2" name="condition2">
+        <option value="Artery">Adjacente à une rue artérielle</option>
+        <option value="Feedr">Adjacente à la rue Feeder</option>
+        <option value="PosN">À côté d'un parc</option>
+        <option value="PosA">Adjacente à un point d'intérêt positif (magasin, hôpital...)</option>
+        <option value="RRNn">À 200 pieds du chemin de fer Nord-Sud</option>
+        <option value="RRAe">Adjacente au chemin de fer Est-Ouest</option>
+        <option value="RRAn">Adjacente au chemin de fer Nord-Sud</option>
+        <option value="Norm">Aucune proximité</option>
+      </select><br>
+      <label for="neighborhood" style="white-space: nowrap;">Dans quel quartier se situe le logement ?</label><br>
+      <select id="neighborhood" name="neighborhood">
+        <option value="Blmngtn">Bloomington Heights</option>
+        <option value="Blueste">Bluestem</option>
+        <option value="BrDale">Briardale</option>
+        <option value="BrkSide">Brookside</option>
+        <option value="ClearCr">Clear Creek</option>
+        <option value="CollgCr">College Creek</option>
+        <option value="Crawfor">Crawford</option>
+        <option value="Edwards">Edwards</option>
+        <option value="Gilbert">Gilbert</option>
+        <option value="IDOTRR">Iowa DOT and Rail Road</option>
+        <option value="MeadowV">Meadow Village</option>
+        <option value="Mitchel">Mitchell</option>
+        <option value="Names">North Ames</option>
+        <option value="NoRidge">Northridge</option>
+        <option value="NPkVill">Northpark Villa</option>
+        <option value="NridgHt">Northridge Heights</option>
+        <option value="NWAmes">Northwest Ames</option>
+        <option value="OldTown">Old Town</option>
+        <option value="SWISU">South & West of Iowa State University</option>
+        <option value="Sawyer">Sawyer</option>
+        <option value="SawyerW">Sawyer West</option>
+        <option value="Somerst">Somerset</option>
+        <option value="StoneBr">Stone Brook</option>
+        <option value="Timber">Timberland</option>
+        <option value="Veenker">Veenker</option>
+      </select><br>
+      <label for="electrical" style="white-space: nowrap;">Quel est l'état du système électrique ?</label><br>
+      <select id="electrical" name="electrical">
+        <option value="SBrkr">Standard</option>
+        <option value="FuseA">Boîte à fusible à plus 60 ampères (moyenne)</option>
+        <option value="FuseF">Boîte à fusible à 60 ampères (Correct)</option>
+        <option value="FuseP">Mauvaise</option>
+        <option value="Mix">Mixte</option>
+      </select><br>
+      <label for="central_air" style="white-space: nowrap;">Le logement est-il équipé de climatisation ?</label><br>
+      <select id="central_air" name="central_air">
+        <option value="Y">Oui</option>
+        <option value="N">Non</option>
+      </select><br>
+      <label for="bathroom" style="white-space: nowrap;">Quel est le nombre de salle de bain (0,5 si demi-salle de bain)</label><br>
+      <input type="number" id="bathroom" name="bathroom" min="0" step="0.5" required value="0"><br>
+    </select><br>
+    <label for="heating">Quel est le type de chauffage ?</label><br>
+    <select id="heating" name="heating">
+      <option value="Floor">Chauffage au sol</option>
+      <option value="GasA">Chauffage à air pulsé</option>
+      <option value="GasW">Chauffage à eau chaude</option>
+      <option value="Grav">Chauffage au gaz</option>
+      <option value="Wall">Chauffage mural</option>
+      <option value="OthW">Autre</option>
+    </select><br>
+    <label for="BldgType">Quel est le type de logement ?</label><br>
+    <select id="BldgType" name="BldgType">
+      <option value="1Fam">Unifamiliale isolé</option>
+      <option value="2FmCon">Conversion à deux familles</option>
+      <option value="Duplx">Duplex</option>
+      <option value="TwnhsE">Unité de bout de maison de ville</option>
+      <option value="TwnhsI">Maison de ville à l'intérieur de l'unité</option>
+    </select><br>
+        <label style="margin-bottom: 20px;"></label>
+        <input type="submit" value="Predict">
+      </form>            
+    </body>
+  </html>
+  
