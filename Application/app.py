@@ -345,7 +345,7 @@ def predict():
   elif BldgType == 'Twnhs':
     data['BldgType_Twnhs'] = 1
   elif BldgType == 'TwnhsE':
-    data[' BldgType_TwnhsE'] = 1
+    data['BldgType_TwnhsE'] = 1
 
   prediction = modele_xgb.predict(pd.DataFrame(data, index=pd.Index([0])))
   
