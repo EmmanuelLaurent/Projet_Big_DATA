@@ -99,3 +99,12 @@ Il n'y a pas de prérequis pour lancer le code.
 `from sklearn.linear_model import Ridge, RidgeCV`  
 `from sklearn.svm import SVR`  
 `from mlxtend.regressor import StackingCVRegressor`  
+
+
+
+'''
+cd existing_repo
+git remote add origin https://gitlab.univ-lille.fr/thomas.rongier.etu/equipe1-projetbigdatabi2022.git
+git branch -M main
+git push -uf origin main
+'''
