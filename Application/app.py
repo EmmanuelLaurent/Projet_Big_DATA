@@ -71,6 +71,7 @@ def predict():
   heating = request.form['heating']
   BldgType = request.form['BldgType']
 
+# Création d'un dictionnaire, les variables numériques peuvent prendre directement la valeur du formulaire tandis que les variables en dummies sont initialisées à 0
   data = {
     'GarageCars': garage_cars,
     'Total_SF' : surface_habitable,
@@ -165,6 +166,7 @@ def predict():
     'KitchenQual_TA': 0
   }
   
+  # En fonction de la réponse de l'utilisateur est attribuer un 1 à la modalité pour créer un dictionnaire dummies
   if hauteur_sous_sol == 'Ex':
     data['BsmtQual_Ex'] = 1
   elif hauteur_sous_sol == 'Gd':
@@ -347,9 +349,19 @@ def predict():
   elif BldgType == 'TwnhsE':
     data['BldgType_TwnhsE'] = 1
 
+#Appel au modèle pour la prédiction
+
   prediction = modele_xgb.predict(pd.DataFrame(data, index=pd.Index([0])))
   
-  return 'Le prix prédit pour ce logement est de : {} $'.format(int(np.expm1(prediction)[0]))
+#Conversion par l'inverse du log (exponentiel) pour avoir le prix prédit en $ arrondit à la valeur la plus proche de 500
+  return 'Le prix prédit pour ce logement est de : {} $'.format(round((np.expm1(modele_xgb.predict(pd.DataFrame(data, index=pd.Index([0]))))[0])/500)*500)
+
+#Conversion par l'inverse du log (exponentiel) pour avoir le prix prédit en $ arrondit à la valeur la plus proche de 1000
+ #return 'Le prix prédit pour ce logement est de : {} $'.format(round((np.expm1(modele_xgb.predict(pd.DataFrame(data, index=pd.Index([0]))))[0])/1000)*1000)
+
+#Résultat brut
+  #return 'Le prix prédit pour ce logement est de : {} $'.format(int(np.expm1(prediction)[0]))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
