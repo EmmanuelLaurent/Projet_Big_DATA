@@ -59,6 +59,7 @@ Il n'y a pas de prérequis pour lancer le code.
 
 ```
 pip install flask
+pip install flask-bootstrap
 pip install xgboost
 pip install pandas
 pip install numpy
