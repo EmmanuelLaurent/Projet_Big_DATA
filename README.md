@@ -100,4 +100,7 @@ Il n'y a pas de prérequis pour lancer le code.
 `from sklearn.svm import SVR`  
 `from mlxtend.regressor import StackingCVRegressor`  
 
+```
+import seaborn as sb
 
+```
