@@ -14,7 +14,42 @@ Ce fichier a pour but de présenter les différentes étapes de notre projet, la
 
 ## Répartition des tâches
 
-
+- mise en place du lien Git/Jira : Thomas
+- mise en place du Gantt : Thomas
+- mise à disposition des Metadonnées dans le GitLab : Thomas
+- mise en place du dictionnaire des données : Thomas/Antoine
+- définition du besoin : Ilyes
+- renommage des variables : Emmanuel
+- statistiques descriptives : Antoine
+- sélection des variables : Ilyes/Emmanuel 
+- regroupement des modalités : Emmanuel
+- création d'un Schéma du projet décisionnel : Thomas
+- mise en place d'un modèle conceptuel de données (MCD/MCMD) : Thomas
+- réalisation de la diapositive pour la soutenance intermédiaire : Ilyes/Thomas
+- création d'une branche de développement sur GIT : Thomas
+- création d'une matrice de corrélation : Emmanuel 
+- identifier et corriger les valeurs aberrantes : Ilyes
+- évolution du contexte du projet : Emmanuel
+- conversion des variables de surface de pieds carrés à mètres carrés : Ilyes
+- création d'hypothèses suite à la présentation intermédiaire : Antoine
+- faire une première connexion entre Python et PowerBI : Thomas
+- BUG connexion entre Python et PowerBI : Thomas
+- rédaction du rapport : Ilyes/Antoine
+- étude de la sauvegarde et de l'export du modèle : Emmanuel
+- création de l'application utiliisateur : Thomas
+- travail sur le design du site Web : Thomas/Ilyes
+- rédaction des commentaires python : Ilyes/Emmanuel
+- commentaire de l'API : Thomas
+- modélisation machine learning : Ilyes/Emmanuel
+- score Kaggle : Emmanuel
+- rapport PowerBI - Création de la template : Thomas/Antoine
+- lier les rapports PowerBI à notre API Web : Thomas
+- création de la page d'accueil de l'API : Thomas
+- liaison du modèle de machine learning à l'API pour la prédiction : Thomas/Emmanuel/Ilyes
+- dév des rapports PowerBI : Antoine
+- rédaction du fichier README.md : Ilyes/Antoine/Emmanuel/Thomas
+- mise en production de la branche 'dev' : Thomas
+- renseignement déploiement Application : Thomas
 
 ## Comment lancer le code 
 
