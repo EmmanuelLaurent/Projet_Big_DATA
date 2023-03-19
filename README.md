@@ -56,8 +56,10 @@ Ce fichier a pour but de présenter les différentes étapes de notre projet, la
 Il n'y a pas de prérequis pour lancer le code.
 
 ## Les bibliothèques python utilisées
-`import pandas as pd`
+`import pandas as pd` 
+
 `import os`
+
 `import numpy as np`
 `import seaborn as sns`
 `import matplotlib.pyplot as plt`
