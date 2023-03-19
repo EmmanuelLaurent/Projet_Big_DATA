@@ -55,6 +55,8 @@ Ce fichier a pour but de présenter les différentes étapes de notre projet, la
 
 Afin d'assurer le bon fonctionnement des codes merci d'installer les bibliothèques suivantes au préalable.
 
+Suite à l'exécution de l'app.py, ouvrez votre navigateur et entrez le lien suivant : http://localhost:5000
+
 ## Les bibliothèques à installer
 
 ```
