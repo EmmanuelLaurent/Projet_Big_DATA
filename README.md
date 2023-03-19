@@ -55,6 +55,24 @@ Ce fichier a pour but de présenter les différentes étapes de notre projet, la
 
 Il n'y a pas de prérequis pour lancer le code.
 
+## Les bibliothèques à installer
+
+```
+pip install flask
+pip install xgboost
+pip install pandas
+pip install numpy
+pip install scikit-learning
+pip install mlxtend
+pip install statsmodels
+pip install matplotlib
+pip install seaborn
+pip install scipy
+pip install pygwalker
+pip install lightgbm
+
+```
+
 ## Les bibliothèques python utilisées
 ```
 import pandas as pd
