@@ -18,13 +18,13 @@ Ce fichier a pour but de présenter les différentes étapes de notre projet, la
 - mise en place du Gantt : Thomas
 - mise à disposition des Metadonnées dans le GitLab : Thomas
 - mise en place du dictionnaire des données : Thomas/Antoine
-- définition du besoin : Ilyes
+- définition du besoin : Ilyes/Antoine
 - renommage des variables : Emmanuel
 - statistiques descriptives : Antoine
 - sélection des variables : Ilyes/Emmanuel 
 - regroupement des modalités : Emmanuel
 - création d'un Schéma du projet décisionnel : Thomas
-- mise en place d'un modèle conceptuel de données (MCD/MCMD) : Thomas
+- mise en place d'un modèle conceptuel de données (MCD/MCMD) : Thomas/Antoine
 - réalisation de la diapositive pour la soutenance intermédiaire : Ilyes/Thomas
 - création d'une branche de développement sur GIT : Thomas
 - création d'une matrice de corrélation : Emmanuel 
