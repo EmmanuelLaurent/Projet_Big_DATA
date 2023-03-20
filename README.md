@@ -1,6 +1,6 @@
 # Projet BigData : House prices
 
-Ce fichier a pour but de présenter les différentes étapes de notre projet, la répartition des tâches.
+Ce fichier a pour but de présenter les différentes étapes de notre projet, la répartition des tâches, la structure du git et les pré-requis pour exécuter notre projet.
 
 ## Les grands axes du projet et acteurs :
 - **Choix du sujet** : Antoine, Emmanuel, Ilyes, Thomas; 
@@ -53,13 +53,13 @@ Ce fichier a pour but de présenter les différentes étapes de notre projet, la
 
 ## Structure du Git 
 
-- [Application](https://gitlab.univ-lille.fr/thomas.rongier.etu/equipe1-projetbigdatabi2022/-/tree/main/Application) ce répertoire contient les différents codes HTML/CSS et python pour le bon déroulement de l'application, un export du modèle de machine learning est également présent.
+- [Application](https://gitlab.univ-lille.fr/thomas.rongier.etu/equipe1-projetbigdatabi2022/-/tree/main/Application) ce répertoire contient les différents codes HTML/CSS et python pour le bon déroulement de l'application, un export du modèle de machine learning est également présent;
 
-- [Data](https://gitlab.univ-lille.fr/thomas.rongier.etu/equipe1-projetbigdatabi2022/-/tree/main/Data) ce répertoire contient les données utilisées ainsi que le dictionnaire de données.
+- [Data](https://gitlab.univ-lille.fr/thomas.rongier.etu/equipe1-projetbigdatabi2022/-/tree/main/Data) ce répertoire contient les données utilisées ainsi que le dictionnaire de données;
 
-- [Reporting](https://gitlab.univ-lille.fr/thomas.rongier.etu/equipe1-projetbigdatabi2022/-/tree/main/Reporting) ce répertoire contient les deux rapports PowerBI qui sont également disponibles sur l'application après connexion.
+- [Reporting](https://gitlab.univ-lille.fr/thomas.rongier.etu/equipe1-projetbigdatabi2022/-/tree/main/Reporting) ce répertoire contient les deux rapports PowerBI qui sont également disponibles sur l'application après connexion;
 
-- [Machine learning](https://gitlab.univ-lille.fr/thomas.rongier.etu/equipe1-projetbigdatabi2022/-/blob/main/Projet_BigData.ipynb) code python principal
+- [Machine learning](https://gitlab.univ-lille.fr/thomas.rongier.etu/equipe1-projetbigdatabi2022/-/blob/main/Projet_BigData.ipynb) code python principal.
 
 ## Comment lancer le code ?
 
