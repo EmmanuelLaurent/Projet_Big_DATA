@@ -2,15 +2,15 @@
 
 Ce fichier a pour but de présenter les différentes étapes de notre projet, la répartition des tâches.
 
-## Les grands axes du projet :
-- Choix du sujet;
-- Définition du besoin;
-- Gestion de projet;
-- Étude et préparation des données;
-- Modélisation;
-- Reporting;
-- Développement de l'application;
-- Rédaction du rapport.
+## Les grands axes du projet et acteurs :
+- **Choix du sujet** : Antoine, Emmanuel, Ilyes, Thomas; 
+- **Définition du besoin** : Ilyes;
+- **Gestion de projet** : Thomas;
+- **Étude et préparation des données** : Emmanuel, Ilyes;
+- **Modélisation** : Emmanuel, Ilyes;
+- **Reporting** : Antoine, Thomas;
+- **Développement de l'application** : Emmanuel, Thomas;
+- **Rédaction du rapport** : Antoine, Emmanuel, Ilyes, Thomas.
 
 ## Répartition des tâches
 
@@ -50,6 +50,16 @@ Ce fichier a pour but de présenter les différentes étapes de notre projet, la
 - [rédaction du fichier README.md : Ilyes/Antoine/Emmanuel/Thomas](https://equipe1projet-big-data.atlassian.net/jira/software/projects/BIGDATA/issues/BIGDATA-43)
 - [mise en production de la branche 'dev' : Thomas](https://equipe1projet-big-data.atlassian.net/jira/software/projects/BIGDATA/issues/BIGDATA-44)
 - [renseignement déploiement Application : Thomas](https://equipe1projet-big-data.atlassian.net/jira/software/projects/BIGDATA/issues/BIGDATA-45)
+
+## Structure du Git 
+
+- [Application](https://gitlab.univ-lille.fr/thomas.rongier.etu/equipe1-projetbigdatabi2022/-/tree/main/Application) ce répertoire contient les différents codes HTML/CSS et python pour le bon déroulement de l'application, un export du modèle de machine learning est également présent.
+
+- [Data](https://gitlab.univ-lille.fr/thomas.rongier.etu/equipe1-projetbigdatabi2022/-/tree/main/Data) ce répertoire contient les données utilisées ainsi que le dictionnaire de données.
+
+- [Reporting](https://gitlab.univ-lille.fr/thomas.rongier.etu/equipe1-projetbigdatabi2022/-/tree/main/Reporting) ce répertoire contient les deux rapports PowerBI qui sont également disponibles sur l'application après connexion.
+
+- [Machine learning](https://gitlab.univ-lille.fr/thomas.rongier.etu/equipe1-projetbigdatabi2022/-/blob/main/Projet_BigData.ipynb) code python principal
 
 ## Comment lancer le code ?
 
