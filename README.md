@@ -22,7 +22,7 @@ Ce fichier a pour but de présenter les différentes étapes de notre projet, la
 - [renommage des variables : Emmanuel](https://equipe1projet-big-data.atlassian.net/jira/software/projects/BIGDATA/issues/BIGDATA-7)
 - [statistiques descriptives : Antoine](https://equipe1projet-big-data.atlassian.net/jira/software/projects/BIGDATA/issues/BIGDATA-8)
 - [sélection des variables : Ilyes/Emmanuel ](https://equipe1projet-big-data.atlassian.net/jira/software/projects/BIGDATA/issues/BIGDATA-9)
--[ regroupement des modalités : Emmanuel/Ilyes](urhttps://equipe1projet-big-data.atlassian.net/jira/software/projects/BIGDATA/issues/BIGDATA-13l)
+- [ regroupement des modalités : Emmanuel/Ilyes](urhttps://equipe1projet-big-data.atlassian.net/jira/software/projects/BIGDATA/issues/BIGDATA-13l)
 - [création d'un Schéma du projet décisionnel : Thomas](https://equipe1projet-big-data.atlassian.net/jira/software/projects/BIGDATA/issues/BIGDATA-14)
 - [mise en place d'un modèle conceptuel de données (MCD/MCMD) : Thomas/Antoine](https://equipe1projet-big-data.atlassian.net/jira/software/projects/BIGDATA/issues/BIGDATA-15)
 - [réalisation de la diapositive pour la soutenance intermédiaire : Ilyes/Thomas](https://equipe1projet-big-data.atlassian.net/jira/software/projects/BIGDATA/issues/BIGDATA-16)
