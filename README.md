@@ -8,7 +8,7 @@ Ce fichier a pour but de présenter les différentes étapes de notre projet, la
 - Gestion de projet;
 - Étude et préparation des données;
 - Modélisation;
-- Reporting ;
+- Reporting;
 - Développement de l'application;
 - Rédaction du rapport.
 
