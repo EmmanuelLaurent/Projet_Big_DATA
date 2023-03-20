@@ -51,9 +51,13 @@ Ce fichier a pour but de présenter les différentes étapes de notre projet, la
 - [mise en production de la branche 'dev' : Thomas](https://equipe1projet-big-data.atlassian.net/jira/software/projects/BIGDATA/issues/BIGDATA-44)
 - [renseignement déploiement Application : Thomas](https://equipe1projet-big-data.atlassian.net/jira/software/projects/BIGDATA/issues/BIGDATA-45)
 
-## Comment lancer le code 
+## Comment lancer le code ?
 
 Afin d'assurer le bon fonctionnement des codes merci d'installer les bibliothèques suivantes au préalable.
+
+
+Pour l'API, un éditeur de code comme Visual Studio Code est recommandé pour la bonne compilation du code. Il faut savoir que les rapports Power BI sont disponibles sur l'API néanmois, il faut se connecter à un compte où sont hébergés les rapports. Ces identifiants de connexion seront communiqués à l'agence Iowa House mais les rapports sont d'ores et déjà disponibles dans le répertoire [Reporting](https://gitlab.univ-lille.fr/thomas.rongier.etu/equipe1-projetbigdatabi2022/-/tree/main/Reporting).
+
 
 Suite à l'exécution de l'app.py, ouvrez votre navigateur et entrez le lien suivant : http://localhost:5000
 
