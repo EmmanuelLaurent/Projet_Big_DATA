@@ -50,7 +50,7 @@ def prediction():
     return render_template('prediction.html')
 
 # Route pour traiter les données du formulaire
-@app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['GET', 'POST'])
 def predict():
   surface_habitable = float(request.form['surface_habitable'])
   etat_maison = int(request.form['etat_maison'])
@@ -354,7 +354,9 @@ def predict():
   prediction = modele_xgb.predict(pd.DataFrame(data, index=pd.Index([0])))
   
 #Conversion par l'inverse du log (exponentiel) pour avoir le prix prédit en $ arrondit à la valeur la plus proche de 500
-  return 'Le prix prédit pour ce logement est de : {} $'.format(round((np.expm1(modele_xgb.predict(pd.DataFrame(data, index=pd.Index([0]))))[0])/500)*500)
+  #return 'Le prix prédit pour ce logement est de : {} $'.format(round((np.expm1(modele_xgb.predict(pd.DataFrame(data, index=pd.Index([0]))))[0])/500)*500)
+  prix_predit = round((np.expm1(modele_xgb.predict(pd.DataFrame(data, index=pd.Index([0]))))[0])/500)*500
+  return render_template('prediction.html', prix_predit=prix_predit)
 
 #Conversion par l'inverse du log (exponentiel) pour avoir le prix prédit en $ arrondit à la valeur la plus proche de 1000
  #return 'Le prix prédit pour ce logement est de : {} $'.format(round((np.expm1(modele_xgb.predict(pd.DataFrame(data, index=pd.Index([0]))))[0])/1000)*1000)

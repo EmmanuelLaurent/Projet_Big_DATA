@@ -93,150 +93,150 @@
     input[type="submit"]:hover {
       background-color: #3e8e41;
     }
-    
   </style>
     </head>
     <body>
       <h1>Formulaire de prédiction de prix de maison</h1>
+      <h1 class="prix-predit">Le prix prédit pour ce logement est de {{ prix_predit }} $</h1>
       <form action="{{ url_for('predict') }}" method="post">
         <label for="surface_habitable" style="white-space: nowrap;">Quelle est la surface habitable du logement (en pi²) ?</label><br>
-        <input type="number" id="surface_habitable" name="surface_habitable" step="10" required value="900"><br>
+        <input type="number" id="surface_habitable" name="surface_habitable" step="10" required value="{{ request.form['surface_habitable'] or 900 }}"><br>        
         </select><br>
-        <label for="etat_maison" style="white-space: nowrap;">Sur une échelle de 1 à 10 comment  évaluez vous les finitions du logement?</label><br>
-        <input type="number" id="etat_maison" name="etat_maison" min="1" max="10" step="1" required value="5"><br>
+        <label for="etat_maison" style="white-space: nowrap;">Sur une échelle de 1 à 10 comment évaluez-vous les finitions du logement?</label><br>
+        <input type="number" id="etat_maison" name="etat_maison" min="1" max="10" step="1" required value="{{ request.form['etat_maison'] or 5 }}"><br>        
         </select><br>
         <label for="hauteur_sous-sol" style="white-space: nowrap;">Quelle est la hauteur du sous-sol ?</label><br>
         <select id="hauteur_sous-sol" name="hauteur_sous-sol">
-          <option value="Ex">100 pouces ou plus</option>
-          <option value="Gd">Entre 90 et 99 pouces</option>
-          <option value="TA">Entre 80 et 89 pouces</option>
-          <option value="Fa">Moins de 80 pouces</option>
-          <option value="None">Pas de sous-sol</option>
+          <option value="Ex" {% if request.form['hauteur_sous-sol'] == 'Ex' %}selected{% endif %}>100 pouces ou plus</option>
+          <option value="Gd" {% if request.form['hauteur_sous-sol'] == 'Gd' %}selected{% endif %}>Entre 90 et 99 pouces</option>
+          <option value="TA" {% if request.form['hauteur_sous-sol'] == 'TA' %}selected{% endif %}>Entre 80 et 89 pouces</option>
+          <option value="Fa" {% if request.form['hauteur_sous-sol'] == 'Fa' %}selected{% endif %}>Moins de 80 pouces</option>
+          <option value="None" {% if request.form['hauteur_sous-sol'] == 'None' %}selected{% endif %}>Pas de sous-sol</option>
         </select><br>
         <label for="annee_renovation" style="white-space: nowrap;">Quelle est l'année de rénovation du logement (année de construction si jamais rénovée) ?</label><br>
-        <input type="number" id="annee_renovation" name="annee_renovation" min="1872" max="2023" required value="2000"><br>
+        <input type="number" id="annee_renovation" name="annee_renovation" min="1872" max="2023" required value="{{ request.form['annee_renovation'] or 2000 }}"><br>        
         </select><br>
         <label for="exter_qual" style="white-space: nowrap;">Quelle est la qualité des matériaux à l'extérieur ?</label><br>
-          <select id="exter_qual" name="exter_qual">
-              <option value="Ex">Excellent</option>
-              <option value="Gd">Bien</option>
-              <option value="TA">Moyen</option>
-              <option value="Fa">Mauvais</option>
+        <select id="exter_qual" name="exter_qual">
+            <option value="Ex" {% if request.form['exter_qual'] == 'Ex' %}selected{% endif %}>Excellent</option>
+            <option value="Gd" {% if request.form['exter_qual'] == 'Gd' %}selected{% endif %}>Bien</option>
+            <option value="TA" {% if request.form['exter_qual'] == 'TA' %}selected{% endif %}>Moyen</option>
+            <option value="Fa" {% if request.form['exter_qual'] == 'Fa' %}selected{% endif %}>Mauvais</option>
         </select><br>
         <label for="kitchen_qual" style="white-space: nowrap;">Quelle est la qualité de la cuisine ?</label><br>
         <select id="kitchen_qual" name="kitchen_qual">
-          <option value="Ex">Excellente</option>
-          <option value="Gd">Bien</option>
-          <option value="TA">Moyenne</option>
-          <option value="Fa">Mauvaise</option>
+            <option value="Ex" {% if request.form['kitchen_qual'] == 'Ex' %}selected{% endif %}>Excellente</option>
+            <option value="Gd" {% if request.form['kitchen_qual'] == 'Gd' %}selected{% endif %}>Bien</option>
+            <option value="TA" {% if request.form['kitchen_qual'] == 'TA' %}selected{% endif %}>Moyenne</option>
+            <option value="Fa" {% if request.form['kitchen_qual'] == 'Fa' %}selected{% endif %}>Mauvaise</option>
       </select><br>
       <label for="pool_area" style="white-space: nowrap;">Quelle est la taille de la piscine en pieds carrés ? (0 si pas de piscine)</label><br>
-      <input type="number" id="pool_area" name="pool_area" min="0" step="10" required value="0"><br>
+      <input type="number" id="pool_area" name="pool_area" min="0" step="10" required value="{{ request.form['pool_area'] or '0' }}"><br>      
       </select><br>
       <label for="garage_cars" style="white-space: nowrap;">Quelle est la taille du garage en capacité de voiture ?</label><br>
-      <input type="number" id="garage_cars" name="garage_cars" step="1" required value="1"><br>
+      <input type="number" id="garage_cars" name="garage_cars" step="1" required value="{{ request.form['garage_cars'] or '1' }}"><br>      
       </select><br>
       <label for="garage_type" style="white-space: nowrap;">Quel est le type de Garage ?</label><br>
       <select id="garage_type" name="garage_type">
-          <option value="Attchd">Attaché à la maison</option>
-          <option value="2Types">2 types de garage</option>
-          <option value="Basment">Dans le sous-sol</option>
-          <option value="BuiltIn">Garage fait partie de la maison</option>
-          <option value="CarPort">Port de voiture</option>
-          <option value="Detchd">Détacher de la maison</option>
-          <option value="None">Pas de garage</option>
+          <option value="Attchd" {% if request.form['garage_type'] == 'Attchd' %}selected{% endif %}>Attaché à la maison</option>
+          <option value="2Types" {% if request.form['garage_type'] == '2Types' %}selected{% endif %}>2 types de garage</option>
+          <option value="Basment" {% if request.form['garage_type'] == 'Basment' %}selected{% endif %}>Dans le sous-sol</option>
+          <option value="BuiltIn" {% if request.form['garage_type'] == 'BuiltIn' %}selected{% endif %}>Garage fait partie de la maison</option>
+          <option value="CarPort" {% if request.form['garage_type'] == 'CarPort' %}selected{% endif %}>Port de voiture</option>
+          <option value="Detchd" {% if request.form['garage_type'] == 'Detchd' %}selected{% endif %}>Détacher de la maison</option>
+          <option value="None" {% if request.form['garage_type'] == 'None' %}selected{% endif %}>Pas de garage</option>
       </select><br>
       <label for="ms_zoning" style="white-space: nowrap;">Dans quelle zone est situé le logement ?</label><br>
       <select id="ms_zoning" name="ms_zoning">
-        <option value="C (all)">Commerciale</option>
-        <option value="FV">Village Flottant Résidentiel</option>
-        <option value="RH">Résidentielle à haute densité</option>
-        <option value="RM">Résidentielle à moyenne densité</option>
-        <option value="RL">Résidentielle à faible densité</option>
+          <option value="C (all)" {% if request.form['ms_zoning'] == 'C (all)' %}selected{% endif %}>Commerciale</option>
+          <option value="FV" {% if request.form['ms_zoning'] == 'FV' %}selected{% endif %}>Village Flottant Résidentiel</option>
+          <option value="RH" {% if request.form['ms_zoning'] == 'RH' %}selected{% endif %}>Résidentielle à haute densité</option>
+          <option value="RM" {% if request.form['ms_zoning'] == 'RM' %}selected{% endif %}>Résidentielle à moyenne densité</option>
+          <option value="RL" {% if request.form['ms_zoning'] == 'RL' %}selected{% endif %}>Résidentielle à faible densité</option>
       </select><br>
       <label for="condition1" style="white-space: nowrap;">De quel élément la maison est proche ?</label><br>
       <select id="condition1" name="condition1">
-        <option value="Artery">Adjacente à une rue artérielle</option>
-        <option value="Feedr">Adjacente à la rue Feeder</option>
-        <option value="PosN">À côté d'un parc</option>
-        <option value="PosA">Adjacente à un point d'intérêt positif (magasin, hôpital...)</option>
-        <option value="RRNn">À 200 pieds du chemin de fer Nord-Sud</option>
-        <option value="RRNe">À 200 pieds du chemin de fer Est-Ouest</option>
-        <option value="RRAe">Adjacente au chemin de fer Est-Ouest</option>
-        <option value="RRAn">Adjacente au chemin de fer Nord-Sud</option>
-        <option value="Norm">Aucune proximité</option>
+          <option value="Artery" {% if request.form['condition1'] == 'Artery' %}selected{% endif %}>Adjacente à une rue artérielle</option>
+          <option value="Feedr" {% if request.form['condition1'] == 'Feedr' %}selected{% endif %}>Adjacente à la rue Feeder</option>
+          <option value="PosN" {% if request.form['condition1'] == 'PosN' %}selected{% endif %}>À côté d'un parc</option>
+          <option value="PosA" {% if request.form['condition1'] == 'PosA' %}selected{% endif %}>Adjacente à un point d'intérêt positif (magasin, hôpital...)</option>
+          <option value="RRNn" {% if request.form['condition1'] == 'RRNn' %}selected{% endif %}>À 200 pieds du chemin de fer Nord-Sud</option>
+          <option value="RRNe" {% if request.form['condition1'] == 'RRNe' %}selected{% endif %}>À 200 pieds du chemin de fer Est-Ouest</option>
+          <option value="RRAe" {% if request.form['condition1'] == 'RRAe' %}selected{% endif %}>Adjacente au chemin de fer Est-Ouest</option>
+          <option value="RRAn" {% if request.form['condition1'] == 'RRAn' %}selected{% endif %}>Adjacente au chemin de fer Nord-Sud</option>
+          <option value="Norm" {% if request.form['condition1'] == 'Norm' %}selected{% endif %}>Aucune proximité</option>
       </select><br>
       <label for="condition2" style="white-space: nowrap;">De quel élément la maison est proche 2e choix ?</label><br>
       <select id="condition2" name="condition2">
-        <option value="Artery">Adjacente à une rue artérielle</option>
-        <option value="Feedr">Adjacente à la rue Feeder</option>
-        <option value="PosN">À côté d'un parc</option>
-        <option value="PosA">Adjacente à un point d'intérêt positif (magasin, hôpital...)</option>
-        <option value="RRNn">À 200 pieds du chemin de fer Nord-Sud</option>
-        <option value="RRAe">Adjacente au chemin de fer Est-Ouest</option>
-        <option value="RRAn">Adjacente au chemin de fer Nord-Sud</option>
-        <option value="Norm">Aucune proximité</option>
+          <option value="Artery" {% if request.form['condition2'] == 'Artery' %}selected{% endif %}>Adjacente à une rue artérielle</option>
+          <option value="Feedr" {% if request.form['condition2'] == 'Feedr' %}selected{% endif %}>Adjacente à la rue Feeder</option>
+          <option value="PosN" {% if request.form['condition2'] == 'PosN' %}selected{% endif %}>À côté d'un parc</option>
+          <option value="PosA" {% if request.form['condition2'] == 'PosA' %}selected{% endif %}>Adjacente à un point d'intérêt positif (magasin, hôpital...)</option>
+          <option value="RRNn" {% if request.form['condition2'] == 'RRNn' %}selected{% endif %}>À 200 pieds du chemin de fer Nord-Sud</option>
+          <option value="RRAe" {% if request.form['condition2'] == 'RRAe' %}selected{% endif %}>Adjacente au chemin de fer Est-Ouest</option>
+          <option value="RRAn" {% if request.form['condition2'] == 'RRAn' %}selected{% endif %}>Adjacente au chemin de fer Nord-Sud</option>
+          <option value="Norm" {% if request.form['condition2'] == 'Norm' %}selected{% endif %}>Aucune proximité</option>
       </select><br>
       <label for="neighborhood" style="white-space: nowrap;">Dans quel quartier se situe le logement ?</label><br>
       <select id="neighborhood" name="neighborhood">
-        <option value="Blmngtn">Bloomington Heights</option>
-        <option value="Blueste">Bluestem</option>
-        <option value="BrDale">Briardale</option>
-        <option value="BrkSide">Brookside</option>
-        <option value="ClearCr">Clear Creek</option>
-        <option value="CollgCr">College Creek</option>
-        <option value="Crawfor">Crawford</option>
-        <option value="Edwards">Edwards</option>
-        <option value="Gilbert">Gilbert</option>
-        <option value="IDOTRR">Iowa DOT and Rail Road</option>
-        <option value="MeadowV">Meadow Village</option>
-        <option value="Mitchel">Mitchell</option>
-        <option value="Names">North Ames</option>
-        <option value="NoRidge">Northridge</option>
-        <option value="NPkVill">Northpark Villa</option>
-        <option value="NridgHt">Northridge Heights</option>
-        <option value="NWAmes">Northwest Ames</option>
-        <option value="OldTown">Old Town</option>
-        <option value="SWISU">South & West of Iowa State University</option>
-        <option value="Sawyer">Sawyer</option>
-        <option value="SawyerW">Sawyer West</option>
-        <option value="Somerst">Somerset</option>
-        <option value="StoneBr">Stone Brook</option>
-        <option value="Timber">Timberland</option>
-        <option value="Veenker">Veenker</option>
+          <option value="Blmngtn" {% if request.form['neighborhood'] == 'Blmngtn' %}selected{% endif %}>Bloomington Heights</option>
+          <option value="Blueste" {% if request.form['neighborhood'] == 'Blueste' %}selected{% endif %}>Bluestem</option>
+          <option value="BrDale" {% if request.form['neighborhood'] == 'BrDale' %}selected{% endif %}>Briardale</option>
+          <option value="BrkSide" {% if request.form['neighborhood'] == 'BrkSide' %}selected{% endif %}>Brookside</option>
+          <option value="ClearCr" {% if request.form['neighborhood'] == 'ClearCr' %}selected{% endif %}>Clear Creek</option>
+          <option value="CollgCr" {% if request.form['neighborhood'] == 'CollgCr' %}selected{% endif %}>College Creek</option>
+          <option value="Crawfor" {% if request.form['neighborhood'] == 'Crawfor' %}selected{% endif %}>Crawford</option>
+          <option value="Edwards" {% if request.form['neighborhood'] == 'Edwards' %}selected{% endif %}>Edwards</option>
+          <option value="Gilbert" {% if request.form['neighborhood'] == 'Gilbert' %}selected{% endif %}>Gilbert</option>
+          <option value="IDOTRR" {% if request.form['neighborhood'] == 'IDOTRR' %}selected{% endif %}>Iowa DOT and Rail Road</option>
+          <option value="MeadowV" {% if request.form['neighborhood'] == 'MeadowV' %}selected{% endif %}>Meadow Village</option>
+          <option value="Mitchel" {% if request.form['neighborhood'] == 'Mitchel' %}selected{% endif %}>Mitchell</option>
+          <option value="Names" {% if request.form['neighborhood'] == 'Names' %}selected{% endif %}>North Ames</option>
+          <option value="NoRidge" {% if request.form['neighborhood'] == 'NoRidge' %}selected{% endif %}>Northridge</option>
+          <option value="NPkVill" {% if request.form['neighborhood'] == 'NPkVill' %}selected{% endif %}>Northpark Villa</option>
+          <option value="NridgHt" {% if request.form['neighborhood'] == 'NridgHt' %}selected{% endif %}>Northridge Heights</option>
+          <option value="NWAmes" {% if request.form['neighborhood'] == 'NWAmes' %}selected{% endif %}>Northwest Ames</option>
+          <option value="OldTown" {% if request.form['neighborhood'] == 'OldTown' %}selected{% endif %}>Old Town</option>
+          <option value="SWISU" {% if request.form['neighborhood'] == 'SWISU' %}selected{% endif %}>South & West of Iowa State University</option>
+          <option value="Sawyer" {% if request.form['neighborhood'] == 'Sawyer' %}selected{% endif %}>Sawyer</option>
+          <option value="SawyerW" {% if request.form['neighborhood'] == 'SawyerW' %}selected{% endif %}>Sawyer West</option>
+          <option value="Somerst" {% if request.form['neighborhood'] == 'Somerst' %}selected{% endif %}>Somerset</option>
+          <option value="StoneBr" {% if request.form['neighborhood'] == 'StoneBr' %}selected{% endif %}>Stone Brook</option>
+          <option value="Timber" {% if request.form['neighborhood'] == 'Timber' %}selected{% endif %}>Timberland</option>
+          <option value="Veenker" {% if request.form['neighborhood'] == 'Veenker' %}selected{% endif %}>Veenker</option>
       </select><br>
       <label for="electrical" style="white-space: nowrap;">Quel est l'état du système électrique ?</label><br>
       <select id="electrical" name="electrical">
-        <option value="SBrkr">Standard</option>
-        <option value="FuseA">Boîte à fusible à plus 60 ampères (moyenne)</option>
-        <option value="FuseF">Boîte à fusible à 60 ampères (Correct)</option>
-        <option value="FuseP">Mauvaise</option>
-        <option value="Mix">Mixte</option>
+          <option value="SBrkr" {% if request.form['electrical'] == 'SBrkr' %}selected{% endif %}>Standard</option>
+          <option value="FuseA" {% if request.form['electrical'] == 'FuseA' %}selected{% endif %}>Boîte à fusible à plus 60 ampères (moyenne)</option>
+          <option value="FuseF" {% if request.form['electrical'] == 'FuseF' %}selected{% endif %}>Boîte à fusible à 60 ampères (Correct)</option>
+          <option value="FuseP" {% if request.form['electrical'] == 'FuseP' %}selected{% endif %}>Mauvaise</option>
+          <option value="Mix" {% if request.form['electrical'] == 'Mix' %}selected{% endif %}>Mixte</option>      
       </select><br>
       <label for="central_air" style="white-space: nowrap;">Le logement est-il équipé de climatisation ?</label><br>
       <select id="central_air" name="central_air">
-        <option value="Y">Oui</option>
-        <option value="N">Non</option>
+        <option value="Y" {% if request.form['central_air'] == 'Y' %}selected{% endif %}>Oui</option>
+        <option value="N" {% if request.form['central_air'] == 'N' %}selected{% endif %}>Non</option>
       </select><br>
       <label for="bathroom" style="white-space: nowrap;">Quel est le nombre de salle de bain (0,5 si demi-salle de bain)</label><br>
-      <input type="number" id="bathroom" name="bathroom" min="0" step="0.5" required value="1"><br>
+      <input type="number" id="bathroom" name="bathroom" min="0" step="0.5" required value="{{ request.form['bathroom'] or 1 }}"><br>
     </select><br>
     <label for="heating">Quel est le type de chauffage ?</label><br>
     <select id="heating" name="heating">
-      <option value="Floor">Chauffage au sol</option>
-      <option value="GasA">Chauffage à air pulsé</option>
-      <option value="GasW">Chauffage à eau chaude</option>
-      <option value="Grav">Chauffage au gaz</option>
-      <option value="Wall">Chauffage mural</option>
-      <option value="OthW">Autre</option>
+      <option value="Floor" {% if request.form['heating'] == 'Floor' %}selected{% endif %}>Chauffage au sol</option>
+      <option value="GasA" {% if request.form['heating'] == 'GasA' %}selected{% endif %}>Chauffage à air pulsé</option>
+      <option value="GasW" {% if request.form['heating'] == 'GasW' %}selected{% endif %}>Chauffage à eau chaude</option>
+      <option value="Grav" {% if request.form['heating'] == 'Grav' %}selected{% endif %}>Chauffage au gaz</option>
+      <option value="Wall" {% if request.form['heating'] == 'Wall' %}selected{% endif %}>Chauffage mural</option>
+      <option value="OthW" {% if request.form['heating'] == 'OthW' %}selected{% endif %}>Autre</option>
     </select><br>
     <label for="BldgType">Quel est le type de logement ?</label><br>
     <select id="BldgType" name="BldgType">
-      <option value="1Fam">Unifamiliale isolé</option>
-      <option value="2FmCon">Conversion à deux familles</option>
-      <option value="Duplx">Duplex</option>
-      <option value="TwnhsE">Unité de bout de maison de ville</option>
-      <option value="TwnhsI">Maison de ville à l'intérieur de l'unité</option>
+      <option value="1Fam" {% if request.form['BldgType'] == '1Fam' %}selected{% endif %}>Unifamiliale isolé</option>
+      <option value="2FmCon" {% if request.form['BldgType'] == '2FmCon' %}selected{% endif %}>Conversion à deux familles</option>
+      <option value="Duplx" {% if request.form['BldgType'] == 'Duplx' %}selected{% endif %}>Duplex</option>
+      <option value="TwnhsE" {% if request.form['BldgType'] == 'TwnhsE' %}selected{% endif %}>Unité de bout de maison de ville</option>
+      <option value="TwnhsI" {% if request.form['BldgType'] == 'TwnhsI' %}selected{% endif %}>Maison de ville à l'intérieur de l'unité</option>
     </select><br>
         <label style="margin-bottom: 20px;"></label>
         <input type="submit" value="Prédiction">
