@@ -97,7 +97,7 @@
     </head>
     <body>
       <h1>Formulaire de prédiction de prix de maison</h1>
-      <h1 class="prix-predit">Le prix prédit pour ce logement est de {{ prix_predit }} $</h1>
+      <h1 class="prix-predit">Le prix prédit pour ce logement est de : <span style="text-decoration: underline;">{{ prix_predit }}</span>{{ dollar_sign }}</h1>
       <form action="{{ url_for('predict') }}" method="post">
         <label for="surface_habitable" style="white-space: nowrap;">Quelle est la surface habitable du logement (en pi²) ?</label><br>
         <input type="number" id="surface_habitable" name="surface_habitable" step="10" required value="{{ request.form['surface_habitable'] or 900 }}"><br>        

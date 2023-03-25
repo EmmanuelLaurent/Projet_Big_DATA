@@ -356,7 +356,15 @@ def predict():
 #Conversion par l'inverse du log (exponentiel) pour avoir le prix prédit en $ arrondit à la valeur la plus proche de 500
   #return 'Le prix prédit pour ce logement est de : {} $'.format(round((np.expm1(modele_xgb.predict(pd.DataFrame(data, index=pd.Index([0]))))[0])/500)*500)
   prix_predit = round((np.expm1(modele_xgb.predict(pd.DataFrame(data, index=pd.Index([0]))))[0])/500)*500
-  return render_template('prediction.html', prix_predit=prix_predit)
+  
+# Créez deux variables pour séparer le prix et le signe dollar
+  prix_predit_sans_dollar = '{:,.0f}'.format(prix_predit).replace(',', ' ')
+  dollar_sign = " $"
+
+  return render_template('prediction.html', prix_predit=prix_predit_sans_dollar, dollar_sign=dollar_sign)
+
+
+  return render_template('prediction.html', prix_predit=prix_predit_format)
 
 #Conversion par l'inverse du log (exponentiel) pour avoir le prix prédit en $ arrondit à la valeur la plus proche de 1000
  #return 'Le prix prédit pour ce logement est de : {} $'.format(round((np.expm1(modele_xgb.predict(pd.DataFrame(data, index=pd.Index([0]))))[0])/1000)*1000)
